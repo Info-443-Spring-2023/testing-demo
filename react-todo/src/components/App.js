@@ -28,16 +28,18 @@ function App(props) {
 
   //do data processing
   let incompleteArray = tasks.filter((task) => !task.complete);
-  // console.log("Number of incomplete tasks", incompleteArray.length);
 
   return (
     <div className="container">
       <h1>To Do List</h1>
+
       <p className="lead">
         Num things I have to do: <strong>{incompleteArray.length}</strong>
       </p>
+
       {/* pass down the array */}
       <TaskList tasks={tasks} whatToDoWhenClicked={toggleTaskCompletion} />
+
       <AddTaskForm addTaskCallback={addTask} />
     </div>
   );
