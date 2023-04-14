@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import TaskList from './Tasks';
-import { AddTaskForm } from './TaskForms';
+import TaskList from "./Tasks";
+import { AddTaskForm } from "./TaskForms";
 
 function App(props) {
   const [tasks, setTasks] = useState(props.initialTasks);

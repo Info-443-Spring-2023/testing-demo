@@ -18,7 +18,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "linting": "eslint .",
+    "linting:fix": "npm run linting -- --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -27,7 +29,8 @@
     ],
     "rules": {
       "quotes": ["error", "double"],
-      "indent": ["error", 2]
+      "indent": ["error", 2],
+      "no-trailing-spaces": "error"
     }
   },
   "browserslist": {
