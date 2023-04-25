@@ -1,6 +1,10 @@
 import { useState } from "react";
 
+import { useDispatch } from "react-redux"
+import tasksSlice from "../redux/taskSlice";
+
 export function AddTaskForm(props) {
+  const dispatch = useDispatch();
   const [inputtedValue, setInputtedValue] = useState("")
 
   //a controlled form
@@ -11,9 +15,10 @@ export function AddTaskForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log("Submitting: ", inputtedValue)
 
-    props.addTaskCallback(inputtedValue)
+    dispatch(tasksSlice.actions.addTask(inputtedValue))
+    // props.addTaskCallback(inputtedValue)
+
     setInputtedValue("");
   }
 

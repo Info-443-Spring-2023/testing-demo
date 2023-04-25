@@ -4,15 +4,18 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.css"; //load Bootstrap
 import "./index.css";
 
-import App from "./components/App"
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import tasksSlice from "./redux/taskSlice";
 
-//the "data"
-const SAMPLE_TASKS = [
-  {id:1, description:"Learn JSX", complete:true},
-  {id:2, description:"Learn about React State", complete:false},
-  {id:3, description:"Get some sleep", complete:false}
-];
+import App from "./components/App";
+
+//Add some testing data
+store.dispatch(tasksSlice.actions.addTask("Learn Redux"));
 
 //pass data in as a prop!
-ReactDOM.render(<App initialTasks={SAMPLE_TASKS} />,
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("root"));

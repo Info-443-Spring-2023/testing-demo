@@ -1,16 +1,20 @@
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { Provider } from "react-redux";
+import store from "./redux/store"; //will be "single store", may need to clear or re-create
 
 import { AddTaskForm } from "./TaskForms";
 
 describe("Unit:Task Forms", () => {
   describe("Add Task Form", () => {
     test("clears content after submit", () => {
-      const callback = () => {}; //empty
-
       //can render single element
-      render(<AddTaskForm addTaskCallback={callback} />)
+      render(
+        <Provider store={store}>
+          <AddTaskForm />
+        </Provider>
+      )
 
       //enter text
       const formInput = screen.getByRole("textbox")
