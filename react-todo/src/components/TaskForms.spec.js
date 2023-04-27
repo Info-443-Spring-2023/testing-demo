@@ -2,7 +2,7 @@ import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
-import store from "./redux/store"; //will be "single store", may need to clear or re-create
+import store from "../redux/store"; //will be "single store", may need to clear or re-create
 
 import { AddTaskForm } from "./TaskForms";
 

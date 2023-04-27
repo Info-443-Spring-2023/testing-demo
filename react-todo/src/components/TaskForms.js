@@ -17,7 +17,6 @@ export function AddTaskForm(props) {
     event.preventDefault();
 
     dispatch(tasksSlice.actions.addTask(inputtedValue))
-    // props.addTaskCallback(inputtedValue)
 
     setInputtedValue("");
   }
