@@ -2,12 +2,12 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const tasksSlice = createSlice({
   name: "tasks", //the feature name used in actions
-  initialState: { tasks: [] }, //e.g., the array of tasks
+  initialState: [], //e.g., the array of tasks
   reducers: {
     addTask: (state, action) => {
       console.log(action);
-      const newTask = { id: state.tasks.length + 1, description: action };
-      state.tasks.push(newTask) // will be made immutable!
+      const newTask = { id: state.length + 1, description: action };
+      state.push(newTask) // will be made immutable!
     },
     markComplete: (state, action) => {},
   },
@@ -21,7 +21,7 @@ const store = configureStore({
 });
 console.log(store.getState());
 
-tasksSlice.actions.addTask("New Task");
+store.dispatch(tasksSlice.actions.addTask("New Task"));
 console.log(store.getState());
 
 // //A store with data!
